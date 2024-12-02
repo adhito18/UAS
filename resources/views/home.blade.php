@@ -15,30 +15,38 @@
     <!-- About section-->
     <section class="about">
         <div class="container px-4">
+            <div class="text-center" style="margin:40px">
+                <h1>Persewaan</h1>
+            </div>
             <div class="row gx-4 justify-content-center">
                 <div class="col-lg-8">
-                    <div class="swiper mySwiper">
-                        <div class="swiper-wrapper">
-                        <div class="swiper-slide">Slide 1</div>
-                        <div class="swiper-slide">Slide 2</div>
-                        <div class="swiper-slide">Slide 3</div>
-                        <div class="swiper-slide">Slide 4</div>
-                        <div class="swiper-slide">Slide 5</div>
-                        <div class="swiper-slide">Slide 6</div>
-                        <div class="swiper-slide">Slide 7</div>
-                        <div class="swiper-slide">Slide 8</div>
-                        <div class="swiper-slide">Slide 9</div>
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            @foreach($imagePaths as $index => $imagePath)
+                            <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                                <img src="{{ $imagePath }}" class="d-block w-100" alt="Slide {{ $index + 1 }}">
+                            </div>
+                            @endforeach
                         </div>
-                        <div class="swiper-button-next"></div>
-                        <div class="swiper-button-prev"></div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- Services section-->
-    <section class="bg-light" id="services">
+    <section class="services">
         <div class="container px-4">
+            <div class="text-center">
+                <h1>Jasa Perform</h1>
+            </div>
             <div class="row gx-4 justify-content-center">
                 <div class="col-lg-8">
                     <div class="swiper mySwiper">
@@ -81,17 +89,7 @@
         </div>
     </footer>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-    var swiper = new Swiper(".mySwiper", {
-        pagination: {
-            el: ".swiper-pagination",
-            type: "progressbar",
-        },
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-    });
-</script>
+@push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+@endpush
 @endsection

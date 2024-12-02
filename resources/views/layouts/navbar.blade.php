@@ -9,5 +9,8 @@
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
             </ul>
         </div>
+        <div>
+            <a>Log in</a>
+        </div>
     </div>
 </nav>
